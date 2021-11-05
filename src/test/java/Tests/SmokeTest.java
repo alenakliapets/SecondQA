@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -74,44 +75,42 @@ Assert.assertEquals(actualIMTResult,expectedIMTResult);
         driver.get("https://calc.by/building-calculators/laminate.html");
         Thread.sleep(3000);
 
+        //Направление укладки ламината (по ширине комнаты)
+        WebElement layingDirectionLaminate = driver.findElement(By.id("direction-laminate-id1"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", layingDirectionLaminate);
+        layingDirectionLaminate.click();
+
         WebElement layingMethodLaminatElement = driver.findElement(By.tagName("select"));
         Select layingMethodLaminat = new Select(layingMethodLaminatElement);
 
         //Выбор нужного элемента в выпадающем списке
         layingMethodLaminat.selectByIndex(2);
 
+        //Заполнение поля длина комнаты
         WebElement roomLength = driver.findElement(By.id("ln_room_id"));
         roomLength.clear();
         roomLength.sendKeys("500");
 
+        //Заполнение поля ширина комнаты
         WebElement roomWidth = driver.findElement(By.id("wd_room_id"));
         roomWidth.clear();
         roomWidth.sendKeys("400");
 
+        //Заполнение поля длина доски ламината
         WebElement laminatLength = driver.findElement(By.id("ln_lam_id"));
         laminatLength.clear();
         laminatLength.sendKeys("2000");
 
+        //Заполнение поля ширина доски ламината
         WebElement laminatWidth = driver.findElement(By.id("wd_lam_id"));
         laminatWidth.clear();
         laminatWidth.sendKeys("200");
 
-        //Направление укладки ламината
-
-        WebElement layingDirectionLaminate = driver.findElement(By.id("direction-laminate-id1"));
-        layingDirectionLaminate.click();
-
-        Thread.sleep(3000);
-
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("window.scrollTo(0, 5000);");
-//        jse.executeScript("window.scrollTo(0,Math.max(document.documentElement.scrollHeight," +
-//                "document.body.scrollHeight,document.documentElement.clientHeight));");
-
-        Thread.sleep(10000);
+        //Нажатие кнопки рассчитать
         WebElement calculateButton = driver.findElement(By.partialLinkText("Рассчитать"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", calculateButton);
         calculateButton.click();
-        Thread.sleep(5000);
+        Thread.sleep(1500);
 
         //Количество досок ламината
         String expectedNumberLaminates = "53";
