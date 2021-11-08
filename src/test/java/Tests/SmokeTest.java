@@ -48,17 +48,6 @@ Assert.assertEquals(actualIMTResult,expectedIMTResult);
 
         Assert.assertEquals(actualIMTMessage,expectedIMTMessage);
 
-
-
-//       WebElement customsCalculator = driver.findElement(By.linkText("Таможенные калькуляторы"));
-//        Assert.assertTrue(customsCalculator != null);
-//
-//       WebElement otherCalcuator = driver.findElement(By.partialLinkText("Прочие"));
-//        Assert.assertTrue(otherCalcuator != null);
-//
-//       List <WebElement> webElementList = driver.findElements(By.tagName("section"));
-//        Assert.assertEquals(webElementList.size(),2);
-
         driver.quit();
 
     }
