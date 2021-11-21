@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     private final static By userNameInputBy = By.id("user-name");
     private final static By passwordInputBy = By.id("password");
     private final static By loginButtonBy = By.id("login-button");
-    private final static By errorLabelBy = By.tagName("h3");
+    private final static By errorLabelByTag = By.tagName("h3");
 
     //конструктор
 
@@ -38,7 +38,7 @@ public class LoginPage extends BasePage {
 public WebElement getUserNameInput(){return driver.findElement(userNameInputBy);}
 public WebElement getPasswordInput(){return driver.findElement(passwordInputBy);}
 public WebElement getLoginButton(){return driver.findElement(loginButtonBy);}
-public WebElement getErrorLabel(){return driver.findElement(errorLabelBy);}
+public WebElement getErrorLabel(){return driver.findElement(errorLabelByTag);}
 
     //атомарные методы по работе с элементами
 public void setUserName(String text){
@@ -50,7 +50,4 @@ public void setPassword(String text){
     public void clickLoginButton(){
         getLoginButton().click();
     }
-
-
-
 }

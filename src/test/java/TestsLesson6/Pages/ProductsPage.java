@@ -8,8 +8,9 @@ import org.openqa.selenium.WebElement;
 
 public class ProductsPage extends BasePage {
 
-    private final static By titleLabelBy = By.className("title");
+    private final static By titleLabelByClass = By.className("title");
     private final static By menuButtonById = By.id("react-burger-menu-btn");
+    private final static By menuListByClass = By.className("bm-menu");
     private final static By cartButtonByClass = By.className("shopping_cart_link");
     private final static By cartQuantityLabelByClass = By.className("shopping_cart_badge");
     private final static By filterSelectByClass = By.className("product_sort_container");
@@ -35,9 +36,10 @@ driver.get("https://www.saucedemo.com/inventory.html");
             return false;
         }
     }
-    public WebElement getTitleLabel(){return driver.findElement(titleLabelBy);}
+    public WebElement getTitleLabel(){return driver.findElement(titleLabelByClass);}
     public String  getTitleText(){return getTitleLabel().getText();}
     public WebElement getButtonMenu(){return driver.findElement(menuButtonById);}
+    public WebElement getMenuList(){return driver.findElement(menuListByClass);}
     public WebElement getCart(){return driver.findElement(cartButtonByClass);}
     public WebElement getCartQuantityLabel(){return driver.findElement(cartQuantityLabelByClass);}
     public WebElement getFilter(){return driver.findElement(filterSelectByClass);}
@@ -50,5 +52,8 @@ driver.get("https://www.saucedemo.com/inventory.html");
     }
     public void clickAddToCartButton(){
         getAddFirstProductCart().click();
+    }
+    public void clickMenuButton(){
+        getButtonMenu().click();
     }
 }

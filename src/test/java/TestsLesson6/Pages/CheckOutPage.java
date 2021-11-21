@@ -15,6 +15,7 @@ public class CheckOutPage extends BasePage {
     private final static By postalCodeInputById = By.id("postal-code");
     private final static By cancelButtonById = By.id("cancel");
     private final static By continueButtonById = By.id("continue");
+    private final static By errorLabelByTag = By.tagName("h3");
 
 
     public CheckOutPage(WebDriver driver, boolean openPageByUrl) {
@@ -42,5 +43,21 @@ driver.get("https://www.saucedemo.com/checkout-step-one.html");
     public WebElement getPostalCode(){return driver.findElement(postalCodeInputById);}
     public WebElement getCancelButton(){return driver.findElement(cancelButtonById);}
     public WebElement getContinueButton(){return driver.findElement(continueButtonById);}
+    public WebElement getErrorLabel(){return driver.findElement(errorLabelByTag);}
 
+    public void setFirstName(String text){
+        getFirstName().sendKeys(text);
+    }
+    public void setLastName(String text){
+        getLastName().sendKeys(text);
+    }
+    public void setPostalCode(String text){
+        getPostalCode().sendKeys(text);
+    }
+    public void clickContinue(){
+        getContinueButton().click();
+    }
+    public void clickCancel(){
+        getCancelButton().click();
+    }
 }
