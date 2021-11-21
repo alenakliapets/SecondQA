@@ -14,7 +14,6 @@ public class LoginPage extends BasePage {
     private final static By loginButtonBy = By.id("login-button");
     private final static By errorLabelBy = By.tagName("h3");
 
-
     //конструктор
 
     public LoginPage(WebDriver driver, boolean openPageByUrl) {

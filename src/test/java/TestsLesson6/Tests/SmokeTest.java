@@ -30,4 +30,18 @@ public class SmokeTest extends BaseTest {
         Assert.assertEquals(loginPage.getErrorLabel().getText(),
                 "Epic sadface: Username and password do not match any user in this service");
     }
+
+    //Homework CartPage, CheckOutPage, ProductsPage and all tests below
+    @Test
+    public void positiveCartIconTest(){
+        LoginPage loginPage = new LoginPage(driver,true);
+        loginPage.setUserName("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLoginButton();
+
+        ProductsPage productsPage = new ProductsPage(driver, false);
+        productsPage.clickAddToCartButton();
+
+        Assert.assertEquals(productsPage.getCartQuantityLabel().getText(), "1");
+    }
     }
