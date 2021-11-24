@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class ProductsPage extends BasePage {
 
+private final static String endPoint = "inventory.html";
     private final static By titleLabelByClass = By.className("title");
     private final static By menuButtonById = By.id("react-burger-menu-btn");
     private final static By menuListByClass = By.className("bm-menu");
@@ -25,7 +26,7 @@ public class ProductsPage extends BasePage {
 
     @Override
     protected void openPage() {
-driver.get("https://www.saucedemo.com/inventory.html");
+driver.get(properties.getURL() + endPoint);
     }
 
     @Override

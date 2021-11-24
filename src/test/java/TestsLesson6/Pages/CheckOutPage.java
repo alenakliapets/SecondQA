@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class CheckOutPage extends BasePage {
 
+    private final static String endPoint = "checkout-step-one.html";
     private final static By menuButtonById = By.id("react-burger-menu-btn");
     private final static By cartButtonByClass = By.className("shopping_cart_link");
     private final static By firstNameInputById = By.id("first-name");
@@ -24,7 +25,7 @@ public class CheckOutPage extends BasePage {
 
     @Override
     protected void openPage() {
-driver.get("https://www.saucedemo.com/checkout-step-one.html");
+        driver.get(properties.getURL() + endPoint);
     }
 
     @Override

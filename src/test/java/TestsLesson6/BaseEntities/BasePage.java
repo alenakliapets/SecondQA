@@ -1,16 +1,19 @@
 package TestsLesson6.BaseEntities;
 
+import TestsLesson6.Core.ReadProperties;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {
     protected WebDriver driver;
     protected static final int WAIT_FOR_PAGE_LOADING_SEC = 15;
+    protected ReadProperties properties;
 
     protected abstract void openPage();
     public abstract boolean isPageOpened();
 
     public BasePage(WebDriver driver, boolean openPageByUrl) {
         this.driver = driver;
+        properties = new ReadProperties();
         if (openPageByUrl){
             openPage();
         }
