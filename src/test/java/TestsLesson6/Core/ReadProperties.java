@@ -35,4 +35,5 @@ public class ReadProperties {
     public int getTimeout() {
         return Integer.parseInt(properties.getProperty("timeout"));
     }
+    public boolean getHeadLess(){return Boolean.parseBoolean(properties.getProperty("headless"));}
 }

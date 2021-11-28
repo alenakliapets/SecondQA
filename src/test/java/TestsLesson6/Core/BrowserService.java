@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -17,7 +18,13 @@ public class BrowserService {
         switch (properties.getBrowser().toLowerCase()){
             case "chrome":
                 WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-                driver = new ChromeDriver();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("disable-gpu"); //отключение графического процессора
+                chromeOptions.addArguments("window-size=1920,1200"); //размер экрана
+                chromeOptions.addArguments("start-maximized");  // увеличивает окно браузера
+                chromeOptions.setHeadless(properties.getHeadLess());
+
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
