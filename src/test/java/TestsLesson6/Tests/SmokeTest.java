@@ -8,6 +8,8 @@ import TestsLesson6.Pages.ProductsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Locale;
+
 public class SmokeTest extends BaseTest {
 
     //Проверка открытия страницы продуктов
@@ -22,7 +24,7 @@ public class SmokeTest extends BaseTest {
 
         ProductsPage productsPage = new ProductsPage(driver, false);
 
-        Assert.assertEquals(productsPage.getTitleText(),"PRODUCTS","Страница Products не открылась");
+        Assert.assertEquals(productsPage.getTitleText().toLowerCase(Locale.ROOT),"products","Страница Products не открылась");
     }
 
     //Проверка появления элемента с ошибкой и текста в нем
