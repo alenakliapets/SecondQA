@@ -5,6 +5,7 @@ import TestsLesson6.Pages.CartPage;
 import TestsLesson6.Pages.CheckOutPage;
 import TestsLesson6.Pages.LoginPage;
 import TestsLesson6.Pages.ProductsPage;
+import TestsLesson6.Steps.LoginStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,10 +18,8 @@ public class SmokeTest extends BaseTest {
     @Test
     public void positiveLoginTest() {
 
-        LoginPage loginPage = new LoginPage(driver,true);
-        loginPage.setUserName(properties.getUsername());
-        loginPage.setPassword(properties.getPassword());
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
 
         ProductsPage productsPage = new ProductsPage(driver, false);
 
@@ -31,12 +30,10 @@ public class SmokeTest extends BaseTest {
     //после введения некорректрных данных в логин и пароль
     @Test
     public void negativeLoginTest(){
-        LoginPage loginPage = new LoginPage(driver,true);
-        loginPage.setUserName("fffff");
-        loginPage.setPassword("rrrrr");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login("fffff", "rrrrr");
 
-        Assert.assertEquals(loginPage.getErrorLabel().getText(),
+        Assert.assertEquals(new LoginPage(driver, false).getErrorLabel().getText(),
                 "Epic sadface: Username and password do not match any user in this service");
     }
 
@@ -51,7 +48,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
 
         Assert.assertEquals(productsPage.getCartQuantityLabel().getText(), "1");
     }
@@ -79,7 +76,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -95,7 +92,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -114,7 +111,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -138,7 +135,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -162,7 +159,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -186,7 +183,7 @@ public class SmokeTest extends BaseTest {
         loginPage.clickLoginButton();
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton();
+        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
