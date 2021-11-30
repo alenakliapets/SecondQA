@@ -5,6 +5,7 @@ import TestsLesson7.Pages.CartPage;
 import TestsLesson7.Pages.CheckOutPage;
 import TestsLesson7.Pages.LoginPage;
 import TestsLesson7.Pages.ProductsPage;
+import TestsLesson7.Steps.CheckOutStep;
 import TestsLesson7.Steps.LoginStep;
 import TestsLesson7.Steps.OrderStep;
 import org.testng.Assert;
@@ -21,9 +22,8 @@ public class SmokeTest extends BaseTest {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
 
-        ProductsPage productsPage = new ProductsPage(driver, false);
-
-        Assert.assertEquals(productsPage.getTitleText().toLowerCase(Locale.ROOT),"products","Страница Products не открылась");
+        Assert.assertEquals(new ProductsPage(driver, false).getTitleText().
+                toLowerCase(Locale.ROOT),"products","Страница Products не открылась");
     }
 
     //Проверка появления элемента с ошибкой и текста в нем
@@ -48,8 +48,8 @@ public class SmokeTest extends BaseTest {
         OrderStep orderStep = new OrderStep(driver);
         orderStep.orderOneProduct("Sauce Labs Backpack");
 
-        ProductsPage productsPage = new ProductsPage(driver, false);
-        Assert.assertEquals(productsPage.getCartQuantityLabel().getText(), "1");
+        Assert.assertEquals(new ProductsPage(driver, false).getCartQuantityLabel().getText(),
+                "1");
     }
 
     //Проверка появления выпадающего меню
@@ -76,9 +76,8 @@ public class SmokeTest extends BaseTest {
         ProductsPage productsPage = new ProductsPage(driver, false);
         productsPage.clickCartButton();
 
-        CartPage cartPage = new CartPage(driver, false);
-
-        Assert.assertEquals(cartPage.getPurchaseInfo().getText(), productsPage.getFirstProduct().getText());
+        Assert.assertEquals(new CartPage(driver, false).getPurchaseInfo().getText(),
+                productsPage.getFirstProduct().getText());
     }
     //Проверка кнопки удаления товара из корзины
     @Test
@@ -114,13 +113,11 @@ public class SmokeTest extends BaseTest {
         CartPage cartPage = new CartPage(driver, false);
         cartPage.clickCheckOutButton();
 
-        CheckOutPage checkOutPage = new CheckOutPage(driver, false);
+        CheckOutStep checkOutStep = new CheckOutStep(driver);
+        checkOutStep.checkOut("Aaaa", "Ssss", "");
 
-        checkOutPage.setFirstName("Aaa");
-        checkOutPage.setLastName("Sss");
-        checkOutPage.clickContinue();
-
-        Assert.assertEquals(checkOutPage.getErrorLabel().getText(), "Error: Postal Code is required");
+        Assert.assertEquals(new CheckOutPage(driver, false).getErrorLabel().getText(),
+                "Error: Postal Code is required");
         }
     //Проверка появления элемента с ошибкой на странице check out
     //при отсутствии заполненного поля фамилии
@@ -138,13 +135,11 @@ public class SmokeTest extends BaseTest {
         CartPage cartPage = new CartPage(driver, false);
         cartPage.clickCheckOutButton();
 
-        CheckOutPage checkOutPage = new CheckOutPage(driver, false);
+        CheckOutStep checkOutStep = new CheckOutStep(driver);
+        checkOutStep.checkOut("Aaaa", "", "Sss");
 
-        checkOutPage.setFirstName("Aaa");
-        checkOutPage.setPostalCode("Sss");
-        checkOutPage.clickContinue();
-
-        Assert.assertEquals(checkOutPage.getErrorLabel().getText(), "Error: Last Name is required");
+        Assert.assertEquals(new CheckOutPage(driver, false).getErrorLabel().getText(),
+                "Error: Last Name is required");
     }
     //Проверка появления элемента с ошибкой на странице check out
     //при отсутствии заполненного поля имени
@@ -162,13 +157,11 @@ public class SmokeTest extends BaseTest {
         CartPage cartPage = new CartPage(driver, false);
         cartPage.clickCheckOutButton();
 
-        CheckOutPage checkOutPage = new CheckOutPage(driver, false);
+        CheckOutStep checkOutStep = new CheckOutStep(driver);
+        checkOutStep.checkOut("", "DDDdd", "Sss");
 
-        checkOutPage.setLastName("Aaa");
-        checkOutPage.setPostalCode("Sss");
-        checkOutPage.clickContinue();
-
-        Assert.assertEquals(checkOutPage.getErrorLabel().getText(), "Error: First Name is required");
+        Assert.assertEquals(new CheckOutPage(driver, false).getErrorLabel().getText(),
+                "Error: First Name is required");
     }
     //Проверка возвращения на страницу корзины
     //при нажатии кнопки cancel на странице check out
