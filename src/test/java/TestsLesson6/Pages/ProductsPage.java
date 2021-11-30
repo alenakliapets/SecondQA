@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class ProductsPage extends BasePage {
 
+private final static String endPoint = "inventory.html";
     private final static By titleLabelByClass = By.className("title");
     private final static By menuButtonById = By.id("react-burger-menu-btn");
     private final static By menuListByClass = By.className("bm-menu");
@@ -16,6 +17,8 @@ public class ProductsPage extends BasePage {
     private final static By filterSelectByClass = By.className("product_sort_container");
     private final static By firstProductButtonByPartialText = By.partialLinkText("Backpack");
     private final static By addFirstProductCartButtonById = By.id("add-to-cart-sauce-labs-backpack");
+    private final static String addFirstProductCartButton =
+           "//div[.='replace']/ancestor::div[@class='inventory_item_description']//button";
     private final static By photoFirstProductButtonByXpath =
             By.xpath("//*[@src = '/static/media/sauce-backpack-1200x1500.34e7aa42.jpg']");
 
@@ -25,7 +28,7 @@ public class ProductsPage extends BasePage {
 
     @Override
     protected void openPage() {
-driver.get("https://www.saucedemo.com/inventory.html");
+driver.get(properties.getURL() + endPoint);
     }
 
     @Override
@@ -38,6 +41,8 @@ driver.get("https://www.saucedemo.com/inventory.html");
     }
     public WebElement getTitleLabel(){return driver.findElement(titleLabelByClass);}
     public String  getTitleText(){return getTitleLabel().getText();}
+    public WebElement getAddToCartButtonForProduct(String productName){
+        return driver.findElement(By.xpath(addFirstProductCartButton.replace("replace", productName)));}
     public WebElement getButtonMenu(){return driver.findElement(menuButtonById);}
     public WebElement getMenuList(){return driver.findElement(menuListByClass);}
     public WebElement getCart(){return driver.findElement(cartButtonByClass);}
@@ -50,8 +55,8 @@ driver.get("https://www.saucedemo.com/inventory.html");
     public void clickCartButton(){
         getCart().click();
     }
-    public void clickAddToCartButton(){
-        getAddFirstProductCart().click();
+    public void clickAddToCartButton(String productName){
+        getAddToCartButtonForProduct(productName).click();
     }
     public void clickMenuButton(){
         getButtonMenu().click();
