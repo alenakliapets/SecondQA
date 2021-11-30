@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 import java.util.Locale;
 
 public class SmokeTest extends BaseTest {
-
     //Проверка открытия страницы продуктов
     //после введения верных данных логина и пароля
     @Test
