@@ -6,6 +6,7 @@ import TestsLesson7.Pages.CheckOutPage;
 import TestsLesson7.Pages.LoginPage;
 import TestsLesson7.Pages.ProductsPage;
 import TestsLesson7.Steps.LoginStep;
+import TestsLesson7.Steps.OrderStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -41,14 +42,13 @@ public class SmokeTest extends BaseTest {
     //при добавлении одного товара
     @Test
     public void positiveCartIconTest(){
-        LoginPage loginPage = new LoginPage(driver,true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
-
         Assert.assertEquals(productsPage.getCartQuantityLabel().getText(), "1");
     }
 
@@ -56,10 +56,8 @@ public class SmokeTest extends BaseTest {
     //при нажатии на соответствующую кнопку
     @Test
     public void positiveMenuListTest(){
-        LoginPage loginPage = new LoginPage(driver,true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
 
         ProductsPage productsPage = new ProductsPage(driver, false);
         productsPage.clickMenuButton();
@@ -69,13 +67,13 @@ public class SmokeTest extends BaseTest {
     //Проверка на появление в корзине товара после добавления его в корзину
     @Test
     public void positiveCartTest(){
-        LoginPage loginPage = new LoginPage(driver,true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -85,13 +83,13 @@ public class SmokeTest extends BaseTest {
     //Проверка кнопки удаления товара из корзины
     @Test
     public void negativeCartRemoveTest() {
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -104,13 +102,13 @@ public class SmokeTest extends BaseTest {
     //при отсутствии заполненного поля индекса
     @Test
     public void positiveCheckInInfoTest1() {
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -128,13 +126,13 @@ public class SmokeTest extends BaseTest {
     //при отсутствии заполненного поля фамилии
     @Test
     public void positiveCheckInInfoTest2() {
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -152,13 +150,13 @@ public class SmokeTest extends BaseTest {
     //при отсутствии заполненного поля имени
     @Test
     public void positiveCheckInInfoTest3() {
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
@@ -176,13 +174,13 @@ public class SmokeTest extends BaseTest {
     //при нажатии кнопки cancel на странице check out
     @Test
     public void positiveCheckOutCancel() {
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+
+        OrderStep orderStep = new OrderStep(driver);
+        orderStep.orderOneProduct("Sauce Labs Backpack");
 
         ProductsPage productsPage = new ProductsPage(driver, false);
-        productsPage.clickAddToCartButton("Sauce Labs Backpack");
         productsPage.clickCartButton();
 
         CartPage cartPage = new CartPage(driver, false);
