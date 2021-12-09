@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <announcement>..</announcement>
+    <completed_on/>
+    <id>1</id>
+    <is_completed>false</is_completed>
+    <name>Datahub</name>
+    <show_announcement>true</show_announcement>
+    <url>http:///testrail/index.php?/projects/overview/1</url>
+</root>

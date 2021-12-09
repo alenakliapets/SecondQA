@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <completed_on>1389968184</completed_on>
+    <description>...</description>
+    <due_on>1391968184</due_on>
+    <id>1</id>
+    <is_completed>true</is_completed>
+    <name>Release 1.5</name>
+    <project_id>1</project_id>
+    <refs>RF-1, RF-2</refs>
+    <url>http:///testrail/index.php?/milestones/view/1</url>
+</root>
