@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "ae6f37a2-1c74-4a11-ae3a-6c02c498065b",
+		"name": "TestRail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/index.php?/api/v2/get_projects",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/get_projects",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_project",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"announcement\" : \"This is the description for the project Test21 \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/index.php?/api/v2/update_project/{{project_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/update_project/{{project_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_project",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"New test project\",\n\t\"announcement\": \"This is the description for the project Test1\",\n\t\"show_announcement\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/add_project",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/add_project",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_project",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/index.php?/api/v2/delete_project/{{project_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/delete_project/{{project_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_project",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/get_project/{{project_id}}",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/get_project/{{project_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_milestone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/get_milestone/{{milestone_id}}",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/get_milestone/{{milestone_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_milestones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/get_milestones/{{project_id}}",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/get_milestones/{{project_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_milestone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Release 2.1\",\n\t\"due_on\": 1394596999\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/add_milestone/{{project_id}}",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/add_milestone/{{project_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_milestone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"is_completed\" : false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/update_milestone/{{milestone_id}}",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/update_milestone/{{milestone_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_milestone",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}index.php?/api/v2/delete_milestone/{{milestone_id}}",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "/api/v2/delete_milestone/{{milestone_id}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "gHgFBMdxjtDe.wNPD1jj",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "ckarlettt@rambler.ru",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
