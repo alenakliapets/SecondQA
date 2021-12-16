@@ -2,6 +2,7 @@ package TestsLesson9;
 
 import org.testng.annotations.*;
 
+@Listeners (Listener.class)
 public class BaseTest {
     @BeforeTest
     public void beforeTest(){

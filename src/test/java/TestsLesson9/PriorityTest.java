@@ -3,26 +3,26 @@ package TestsLesson9;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DependencyTest {
+public class PriorityTest {
 
-    @Test
+    @Test(priority = 1)
     public void stepb(){
         System.out.println("Step 1");
     }
 
-    @Test(dependsOnMethods = "stepb")
+    @Test(priority = 2)
     public void steps(){
         System.out.println("Step 2");
-        Assert.assertTrue(false);
     }
 
-    @Test(dependsOnMethods = "steps", alwaysRun = true)
+    @Test(priority = 3)
     public void stepa(){
         System.out.println("Step 3");
     }
 
-    @Test(dependsOnMethods = {"steps", "stepa"})
+    @Test(priority = 4)
     public void stepc(){
         System.out.println("Step 4");
     }
+
 }
