@@ -1,4 +1,4 @@
-package TestsLesson9;
+package TestsLesson9.Lesson9Classwork;
 
 import org.testng.ITestListener;
 import org.testng.ITestResult;

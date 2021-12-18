@@ -1,6 +1,6 @@
-package TestsLesson9;
+package TestsLesson9.Lesson9Classwork;
 
-import TestsLesson9.Data.StaticProvider;
+import TestsLesson9.Lesson9Classwork.Data.StaticProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -14,7 +14,7 @@
         </run>
     </groups>
     <classes>
-        <class name="TestsLesson9.GroupsTest"></class>
+        <class name="TestsLesson9.Lesson9Classwork.GroupsTest"></class>
     </classes>
     </test>
 </suite>

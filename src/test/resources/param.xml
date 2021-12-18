@@ -5,7 +5,7 @@
     <parameter name="psw-value" value="test-password"></parameter>
     <test name="Smoke">
     <classes>
-        <class name="TestsLesson9.ParamTest"></class>
+        <class name="TestsLesson9.Lesson9Classwork.ParamTest"></class>
     </classes>
     </test>
 </suite>

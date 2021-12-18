@@ -3,9 +3,9 @@
 <suite name="Main Suite" thread-count="3" parallel="methods">
     <test name="Regression">
     <classes>
-        <class name="TestsLesson9.PriorityTest"></class>
-        <class name="TestsLesson9.CalcTest"></class>
-        <class name="TestsLesson9.ParamTest"></class>
+        <class name="TestsLesson9.Lesson9Classwork.PriorityTest"></class>
+        <class name="TestsLesson9.Lesson9Classwork.CalcTest"></class>
+        <class name="TestsLesson9.Lesson9Classwork.ParamTest"></class>
     </classes>
     </test>
 </suite>
