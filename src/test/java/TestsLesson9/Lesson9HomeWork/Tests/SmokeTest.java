@@ -108,15 +108,19 @@ public class SmokeTest extends BaseTest {
         //Введение данных нового тест кейса
         AddTestCasePage addTestCasePage = new AddTestCasePage(driver, false);
         addTestCasePage.setTitleInput(title); // Название тест кейса
+        Thread.sleep(2000);
         addTestCasePage.clickSectionButton();
         addTestCasePage.setSectionInput(section); // Секция тест кейса
+        Thread.sleep(2000);
         addTestCasePage.clickTemplateButton();
         addTestCasePage.setTemplateInput(template);// Шаблон тест кейса
+        Thread.sleep(2000);
         addTestCasePage.clickTypeButton();
         addTestCasePage.setTypeInput(type); // Тип тест кейса
+        Thread.sleep(2000);
         addTestCasePage.clickPriorityButton();
         addTestCasePage.setPriorityInput(priority); // Приоритет тест кейса
-
+        Thread.sleep(2000);
         addTestCasePage.clickAcceptButton(); // Сохранение тест кейса
 
         TestCaseInformationPage testCaseInformationPage = new TestCaseInformationPage(driver, false);
