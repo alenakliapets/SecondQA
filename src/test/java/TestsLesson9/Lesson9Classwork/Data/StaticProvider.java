@@ -1,4 +1,4 @@
-package TestsLesson9.Data;
+package TestsLesson9.Lesson9Classwork.Data;
 
 import org.testng.annotations.DataProvider;
 
