@@ -38,4 +38,5 @@ public class ReadProperties {
 
     public String getProjectNameFor6Test(){return properties.getProperty("projectNameFor6Test");}
 
+    public int getTimeout(){return Integer.parseInt(properties.getProperty("timeout"));}
 }

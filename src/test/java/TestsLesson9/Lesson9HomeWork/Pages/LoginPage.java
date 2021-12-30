@@ -34,7 +34,7 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public WebElement getEmailInput(){return driver.findElement(emailInputBy);}
+    public WebElement getEmailInput(){return waits.waitForVisibility(emailInputBy);}
     public WebElement getPasswordInput(){return driver.findElement(passwordInputBy);}
     public WebElement getLoginButton(){return driver.findElement(loginButtonBy);}
     public WebElement getEmailIsRequired(){return driver.findElement(emailIsRequiredBy);}
