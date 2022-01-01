@@ -1,4 +1,4 @@
-package TestsLesson9.Lesson9HomeWork.Core;
+package TestsLesson10.HomeWork;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +16,17 @@ public class Waits {
         wait = new WebDriverWait(driver, timeOut);
     }
 
+
+    //Примеры методов ожидания
     public WebElement waitForVisibility(By by){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public Boolean waitForInvisibility(WebElement webElement){
+        return wait.until(ExpectedConditions.invisibilityOf(webElement));
+    }
+    public Boolean waitForInvisibility(By by){
+        return wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     public WebElement waitForVisibilityElement(WebElement element){
@@ -28,11 +37,8 @@ public class Waits {
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
-    public Boolean waitForInvisibility(By by){
-        return wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
-    }
-    public Boolean waitForInvisibility(WebElement webElement){
-        return wait.until(ExpectedConditions.invisibilityOf(webElement));
+    public Boolean waitForDisabled(By by, String attribute, String value){
+        return wait.until(ExpectedConditions.attributeToBe(by, attribute, value));
     }
 
 }
