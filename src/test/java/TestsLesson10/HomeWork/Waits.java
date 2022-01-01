@@ -16,8 +16,6 @@ public class Waits {
         wait = new WebDriverWait(driver, timeOut);
     }
 
-
-    //Примеры методов ожидания
     public WebElement waitForVisibility(By by){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }

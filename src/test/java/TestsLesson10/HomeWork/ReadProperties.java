@@ -24,6 +24,10 @@ public class ReadProperties {
         return properties.getProperty("userDirectory");
     }
 
+    public String getDownloadDir() {
+        return properties.getProperty("downloadDirectory");
+    }
+
     public int getTimeout(){return Integer.parseInt(properties.getProperty("timeout"));}
 }
 

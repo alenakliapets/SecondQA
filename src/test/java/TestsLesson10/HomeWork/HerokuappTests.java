@@ -6,6 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.util.List;
+
 public class HerokuappTests extends BaseTest{
 
     @Test
@@ -73,5 +76,28 @@ public class HerokuappTests extends BaseTest{
                 (By.xpath("//*[@id = 'uploaded-files']")).getText(), fileName);
     }
 
+@Test
+    public void downloadFileTest() {
+        driver.get("https://the-internet.herokuapp.com/download");
+        List<WebElement> list = driver.findElements(By.xpath("//*[@class = 'example']/a"));
 
+        WebElement firstLink = list.get(0);
+        firstLink.click();
+
+        File folder = new File(properties.getDownloadDir());
+        File[] listOfFiles = folder.listFiles();
+        boolean found = false;
+    File f = null;
+    for (File listOfFile : listOfFiles){
+        if (listOfFile.isFile()){
+            String fileName = listOfFile.getName();
+            System.out.println("File " + listOfFile.getName());
+            if (fileName.matches(firstLink.getText())){
+                f = new File(fileName);
+                found = true;
+            }
+        }
+    }
+    Assert.assertTrue(found, "Download document is not found");
+}
 }
