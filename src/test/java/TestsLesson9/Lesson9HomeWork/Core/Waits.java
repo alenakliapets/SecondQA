@@ -35,15 +35,4 @@ public class Waits {
         return wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
-    public WebElement waitForPresent(By by){
-        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
-    }
-
-    public Boolean waitForAttribute(By by, String attributeName, String attributeValue){
-        return wait.until(ExpectedConditions.attributeToBe(by, attributeName,attributeValue));
-    }
-
-    public Boolean waitForWindows(int windowCount){
-        return wait.until(ExpectedConditions.numberOfWindowsToBe(windowCount));
-    }
 }
