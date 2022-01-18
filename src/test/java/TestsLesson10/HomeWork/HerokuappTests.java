@@ -1,5 +1,9 @@
 package TestsLesson10.HomeWork;
 
+import TestsLesson9.Lesson9HomeWork.Pages.DashboardPage;
+import TestsLesson9.Lesson9HomeWork.Pages.ProjectInformationPage;
+import TestsLesson9.Lesson9HomeWork.Steps.AddNewProjectStep;
+import TestsLesson9.Lesson9HomeWork.Steps.LoginStep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -77,13 +81,13 @@ public class HerokuappTests extends BaseTest{
     }
 
 @Test
-    public void downloadFileTest() {
+    public void downloadFileTest() throws InterruptedException {
         driver.get("https://the-internet.herokuapp.com/download");
         List<WebElement> list = driver.findElements(By.xpath("//*[@class = 'example']/a"));
 
         WebElement firstLink = list.get(0);
         firstLink.click();
-
+    Thread.sleep(100);
         File folder = new File(properties.getDownloadDir());
         File[] listOfFiles = folder.listFiles();
         boolean found = false;

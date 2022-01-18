@@ -28,6 +28,22 @@ public class ReadProperties {
         return properties.getProperty("downloadDirectory");
     }
 
+    public String getEmail() {
+        return properties.getProperty("Email");
+    }
+
+    public String getPassword() {
+        return properties.getProperty("password");
+    }
+
+    public String geturl() {
+        return properties.getProperty("url");
+    }
+
+    public String getProjectNameFor6Test() {
+        return properties.getProperty("projectNameFor6Tes");
+    }
+
     public int getTimeout(){return Integer.parseInt(properties.getProperty("timeout"));}
 }
 

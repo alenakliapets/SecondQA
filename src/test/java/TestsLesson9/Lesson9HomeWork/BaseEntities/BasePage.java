@@ -15,8 +15,8 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver, boolean openPageByUrl) {
         this.driver = driver;
-        waits = new Waits(driver, properties.getTimeout());
         properties = new ReadProperties();
+        waits = new Waits(driver, properties.getTimeout());
         if (openPageByUrl){
             openPage();
         }
