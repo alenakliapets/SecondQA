@@ -20,6 +20,10 @@ public class Waits {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
+    public WebElement waitForClickable(WebElement element){
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public WebElement waitForVisibilityElement(WebElement element){
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
