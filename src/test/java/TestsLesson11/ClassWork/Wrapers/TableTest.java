@@ -11,7 +11,7 @@ public class TableTest extends BaseTest {
     public void tableTest() throws InterruptedException {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getEmail(), properties.getPassword());
-        driver.get("https://alenaqaz.testrail.io/index.php?/admin/projects/overview");
+        driver.get("https://alenaqazxsw.testrail.io/index.php?/admin/projects/overview");
 
         Table table = new Table(driver, By.cssSelector("table.grid"));
         System.out.println(table.rowsCount());

@@ -11,7 +11,7 @@ public class RadioButtonTest extends BaseTest {
     public void radioButtonTest() throws InterruptedException {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getEmail(), properties.getPassword());
-        driver.get("https://alenaqaz.testrail.io/index.php?/admin/projects/add");
+        driver.get("https://alenaqazxsw.testrail.io/index.php?/admin/projects/add");
         RadioButton radioButton = new RadioButton(driver, By.xpath("//*[@name = 'suite_mode']"));
         //radioButton.selectByIndex(3);
         radioButton.selectByText("Use multiple test suites to manage cases");

@@ -28,6 +28,8 @@ public class ReadProperties {
         return properties.getProperty("downloadDirectory");
     }
 
+    public String getEditedProjectName(){return properties.getProperty("editedProjectName");}
+
     public String getEmail() {
         return properties.getProperty("Email");
     }
@@ -41,7 +43,7 @@ public class ReadProperties {
     }
 
     public String getProjectNameFor6Test() {
-        return properties.getProperty("projectNameFor6Tes");
+        return properties.getProperty("projectNameFor6Test");
     }
 
     public int getTimeout(){return Integer.parseInt(properties.getProperty("timeout"));}
