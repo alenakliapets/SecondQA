@@ -24,7 +24,7 @@ public class ProjectsPage extends BasePage {
 
     @Override
     protected void openPage() {
-        driver.get("https://alenaqwerty.testrail.io/index.php?/admin/projects/overview");
+        driver.get("https://alenaqazxsw.testrail.io/index.php?/admin/projects/overview");
     }
 
     @Override
