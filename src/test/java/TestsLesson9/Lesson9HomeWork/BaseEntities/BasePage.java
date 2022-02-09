@@ -3,6 +3,7 @@ package TestsLesson9.Lesson9HomeWork.BaseEntities;
 import TestsLesson9.Lesson9HomeWork.Core.ReadProperties;
 import TestsLesson9.Lesson9HomeWork.Core.Waits;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -17,6 +18,9 @@ public abstract class BasePage {
         this.driver = driver;
         properties = new ReadProperties();
         waits = new Waits(driver, properties.getTimeout());
+
+        PageFactory.initElements(this.driver, this);
+
         if (openPageByUrl){
             openPage();
         }
