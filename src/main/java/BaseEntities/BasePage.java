@@ -1,7 +1,9 @@
-package TestsLesson6.BaseEntities;
+package BaseEntities;
+
 
 import Core.ReadProperties;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -14,6 +16,7 @@ public abstract class BasePage {
     public BasePage(WebDriver driver, boolean openPageByUrl) {
         this.driver = driver;
         properties = new ReadProperties();
+        PageFactory.initElements(this.driver, this);
         if (openPageByUrl){
             openPage();
         }
