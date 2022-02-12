@@ -1,4 +1,4 @@
-package TestsLesson9.Lesson9HomeWork.BaseEntities;
+package TestsLesson14.HomeWork.Testrail.Builder.BaseEntities;
 
 import TestsLesson9.Lesson9HomeWork.Core.ReadProperties;
 import TestsLesson9.Lesson9HomeWork.Core.Waits;

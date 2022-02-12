@@ -1,6 +1,6 @@
 package TestsLesson6.BaseEntities;
 
-import TestsLesson6.Core.ReadProperties;
+import Core.ReadProperties;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {

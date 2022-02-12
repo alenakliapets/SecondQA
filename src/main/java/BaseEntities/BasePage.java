@@ -1,7 +1,7 @@
-package TestsLesson9.Lesson9HomeWork.BaseEntities;
+package BaseEntities;
 
-import TestsLesson9.Lesson9HomeWork.Core.ReadProperties;
-import TestsLesson9.Lesson9HomeWork.Core.Waits;
+
+import Core.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -9,7 +9,6 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected static final int WAIT_FOR_PAGE_LOADING_SEC = 15;
     protected ReadProperties properties;
-    protected Waits waits;
 
     protected abstract void openPage();
     public abstract boolean isPageOpened();
@@ -17,10 +16,7 @@ public abstract class BasePage {
     public BasePage(WebDriver driver, boolean openPageByUrl) {
         this.driver = driver;
         properties = new ReadProperties();
-        waits = new Waits(driver, properties.getTimeout());
-
         PageFactory.initElements(this.driver, this);
-
         if (openPageByUrl){
             openPage();
         }
