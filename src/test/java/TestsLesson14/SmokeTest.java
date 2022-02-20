@@ -4,6 +4,7 @@ import TestsLesson9.Lesson9HomeWork.BaseEntities.BaseTest;
 import TestsLesson9.Lesson9HomeWork.Core.StaticProvider;
 import TestsLesson9.Lesson9HomeWork.Pages.*;
 import TestsLesson9.Lesson9HomeWork.Steps.AddNewProjectStep;
+import TestsLesson9.Lesson9HomeWork.Steps.LoginStep;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class SmokeTest extends BaseTest {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login("", "1111");
 
-        TestsLesson9.Lesson9HomeWork.Pages.LoginPage loginPage = new TestsLesson9.Lesson9HomeWork.Pages.LoginPage(driver, false);
+       LoginPage loginPage = new LoginPage(driver, false);
         Assert.assertTrue(loginPage.getEmailIsRequired().isDisplayed());
     }
 
@@ -40,7 +41,7 @@ public class SmokeTest extends BaseTest {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login("", "");
 
-        TestsLesson9.Lesson9HomeWork.Pages.LoginPage loginPage = new TestsLesson9.Lesson9HomeWork.Pages.LoginPage(driver, false);
+       LoginPage loginPage = new LoginPage(driver, false);
         Assert.assertTrue((loginPage.getPasswordIsRequired().isDisplayed()) && (loginPage.getEmailIsRequired().isDisplayed()));
     }
 
@@ -107,6 +108,7 @@ public class SmokeTest extends BaseTest {
 
         //Введение данных нового тест кейса
         AddTestCasePage addTestCasePage = new AddTestCasePage(driver, false);
+        Thread.sleep(2000);
         addTestCasePage.setTitleInput(title); // Название тест кейса
         Thread.sleep(2000);
         addTestCasePage.clickSectionButton();

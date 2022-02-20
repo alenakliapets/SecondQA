@@ -22,7 +22,7 @@ public class DashboardPage extends BasePage {
 
     @Override
     protected void openPage() {
-        driver.get("https://alenaqaz.testrail.io/index.php?/dashboard");
+        driver.get("https://alenaqazxsw2.testrail.io/index.php?/dashboard");
     }
 
     @Override
